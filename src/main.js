@@ -13,25 +13,25 @@ import App from "./App.vue";
 // Define routes
 const routes = [
   {
-    path: "/",
+    path: "./",
     component: Home,
     meta: { requiresAuth: true },
   },
   {
-    path: "/login",
+    path: "./login",
     component: Login,
   },
   {
-    path: "/register",
+    path: "./register",
     component: Register,
   },
   {
-    path: "/inbox",
+    path: "./inbox",
     component: Inbox,
     meta: { requiresAuth: true },
   },
   {
-    path: "/listings",
+    path: "./listings",
     component: ListingCreate,
     meta: { requiresAuth: true },
   },
@@ -49,7 +49,7 @@ router.beforeEach((to, from, next) => {
   
   // If the route requires authentication and the user is not logged in, redirect to login page
   if (to.matched.some(record => record.meta.requiresAuth) && !isLoggedIn) {
-    next('/login'); // Redirect to login if not authenticated
+    next('./login'); // Redirect to login if not authenticated
   } else {
     next(); // Allow navigation if user is logged in or route doesn't require authentication
   }
