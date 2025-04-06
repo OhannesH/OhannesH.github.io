@@ -3,18 +3,15 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
-const repositoryName = 'OhannesH.github.io'; 
-
 export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
   ],
-  base: process.env.NODE_ENV === 'production' ? `/${repositoryName}/` : '/',
+  base: '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
 })
-
